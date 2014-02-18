@@ -35,7 +35,11 @@
 
         var items = new Apigee.Collection({
             "client": client,
-            "type": "items"
+            "type": "items",
+            "qs":{
+                "limit": 25,
+                "ql" : "order by title"
+            }
         });
 
         function populateList(collection) {
@@ -95,12 +99,12 @@
 <body>
     <section id="page-main" data-role="page">
         <header id="header-mylist" data-role="header" data-position="fixed" data-theme="a">
-            <a id="btn-new" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" href="#page-add" class="ui-btn-right" data-theme="c">New</a>
+            <a id="btn-new" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" href="#page-add" data-transaction="slide" class="ui-btn-right" data-theme="c">New</a>
             <h1>My Bucket List</h1>
         </header>
         <!-- /header -->
         <article data-role="content" id="contentlist">
-            <ul data-role="listview" id="bucketlist" class="mybucketlist">
+            <ul data-role="listview" data-filter="true" id="bucketlist" class="mybucketlist">
                 <li>
                     <a href="#page-add">
                         <h3>My first bucketlist item</h3>
